@@ -47,17 +47,17 @@
 不要为了试装去修改正在使用的 desktop profile。`plugin_manager` 只作用于当前会话的 profile；如需在另一个 profile 中验证，使用官方 CLI：
 
 ```powershell
-$dsh = '<DSH_HOME>\resources\app.asar\dsh\node_modules\@deepseek-ai\dsh\lib\bin.js'
+$dsh = '<DSH_INSTALL>\resources\app.asar\dsh\node_modules\@deepseek-ai\dsh\lib\bin.js'
 $env:ELECTRON_RUN_AS_NODE = '1'
 
 # 1. 从 web 模板创建隔离 profile
-& '<DSH_HOME>\DeepSeek Harness.exe' $dsh --profile feiyu-dev --from-default-profile web --dump-config
+& '<DSH_INSTALL>\DeepSeek Harness.exe' $dsh --profile feiyu-dev --from-default-profile web --dump-config
 
 # 2. 安装本插件（使用绝对路径）
-& '<DSH_HOME>\DeepSeek Harness.exe' $dsh plugin --profile feiyu-dev add 'C:\path\to\dsh-feiyu-bridge'
+& '<DSH_INSTALL>\DeepSeek Harness.exe' $dsh plugin --profile feiyu-dev add 'C:\path\to\dsh-feiyu-bridge'
 
 # 3. 启动隔离 Host，不要和 desktop GUI 共用端口
-& '<DSH_HOME>\DeepSeek Harness.exe' $dsh --profile feiyu-dev --port 6198 --no-open
+& '<DSH_INSTALL>\DeepSeek Harness.exe' $dsh --profile feiyu-dev --port 6198 --no-open
 ```
 
 隔离 profile 的插件配置写在 `%USERPROFILE%\.dsh\profiles\feiyu-dev\cordis.patch.yml`。若使用 Mock，把 `server.baseUrl` 指向 `http://127.0.0.1:6199/feiyu-bridge/`，并填入 Mock 的测试密钥；同时按需配置 `agent.provider` / `agent.model`，否则新建空会话会因没有模型选择而失败。

@@ -5,15 +5,16 @@
  * DSH can be imported from app.asar. It does not start the GUI, does not read
  * the desktop profile, and does not install anything.
  *
- *   $env:ELECTRON_RUN_AS_NODE='1'; & '<DSH_HOME>\DeepSeek Harness.exe' tools\mount-cordis.mjs
+ *   $env:ELECTRON_RUN_AS_NODE='1'; & '<DSH_INSTALL>\DeepSeek Harness.exe' tools\mount-cordis.mjs
  *
- * `DSH_HOME` defaults to the directory containing the running Electron binary.
+ * The install directory defaults to the directory containing the running
+ * Electron binary. Override it with `DSH_INSTALL_HOME` when needed.
  */
 
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 
-const DSH_HOME = process.env.DSH_HOME ?? path.dirname(process.execPath);
+const DSH_HOME = process.env.DSH_INSTALL_HOME ?? path.dirname(process.execPath);
 const CORDIS = pathToFileURL(path.join(
   DSH_HOME,
   'resources',

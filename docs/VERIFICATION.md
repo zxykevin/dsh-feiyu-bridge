@@ -18,8 +18,8 @@
 
 ```powershell
 $env:ELECTRON_RUN_AS_NODE='1'
-& '<DSH_HOME>\DeepSeek Harness.exe' '<DSH_HOME>\resources\app.asar\dsh\node_modules\@deepseek-ai\dsh\lib\bin.js' --profile feiyu-verify --from-default-profile web
-& '<DSH_HOME>\DeepSeek Harness.exe' '<DSH_HOME>\resources\app.asar\dsh\node_modules\@deepseek-ai\dsh\lib\bin.js' plugin --profile feiyu-verify add 'C:\path\to\dsh-feiyu-bridge'
+& '<DSH_INSTALL>\DeepSeek Harness.exe' '<DSH_INSTALL>\resources\app.asar\dsh\node_modules\@deepseek-ai\dsh\lib\bin.js' --profile feiyu-verify --from-default-profile web
+& '<DSH_INSTALL>\DeepSeek Harness.exe' '<DSH_INSTALL>\resources\app.asar\dsh\node_modules\@deepseek-ai\dsh\lib\bin.js' plugin --profile feiyu-verify add 'C:\path\to\dsh-feiyu-bridge'
 ```
 
 ## 自动化测试
@@ -63,7 +63,7 @@ node -e "import('./src/index.js').then(m => console.log(m.name, m.inject, typeof
 
 ```powershell
 $env:ELECTRON_RUN_AS_NODE='1'
-& '<DSH_HOME>\DeepSeek Harness.exe' 'C:\path\to\dsh-feiyu-bridge\tools\mount-cordis.mjs'
+& '<DSH_INSTALL>\DeepSeek Harness.exe' 'C:\path\to\dsh-feiyu-bridge\tools\mount-cordis.mjs'
 ```
 
 结果：
