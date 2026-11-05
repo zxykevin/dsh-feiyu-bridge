@@ -1,0 +1,19 @@
+{
+  "name": "dsh-feiyu-bridge",
+  "description": "Authenticated outbound bridge that lets the Feiyu/AstrBot VPS dispatch tasks to this Windows DSH agent",
+  "version": "0.4.0",
+  "entry": {
+    "name": "dsh-feiyu-bridge",
+    "inject": [
+      "agents",
+      "tools",
+      "approval",
+      "credentials",
+      "sessionPersistence",
+      "workspaceRegistry",
+      "agentPresets",
+      "sessionTitle",
+      "permissionPresets"
+    ]
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "dsh-feiyu-bridge",
+  "version": "0.4.0",
+  "description": "Feiyu Bridge Windows client: authenticated outbound task bridge from AstrBot/QQ to the local DeepSeek Harness agent",
+  "license": "MIT",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src",
+    "cordis.patch.yml",
+    "dsh.plugin.json",
+    "README.md",
+    "LICENSE",
+    "docs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "compatibility": {
+      "dshReleases": {
+        "0.2.2-rc.1": "compatible"
+      }
+    }
+  },
+  "scripts": {
+    "test": "node --test --test-isolation=none \"test/**/*.test.js\"",
+    "test:unit": "node --test --test-isolation=none \"test/unit/*.test.js\"",
+    "test:integration": "node --test --test-isolation=none \"test/integration/*.test.js\"",
+    "mock": "node mock/server.js"
+  },
+  "engines": {
+    "node": ">=24.9.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.1.0",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/dsh-user-approval": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-user-approval": {
+      "optional": true
+    },
+    "@deepseek-ai/schemastery": {
+      "optional": true
+    }
+  }
+}
